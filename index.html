@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <link rel="stylesheet" href="./css/all.min.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/normalise.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- tailwind  -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@latest/dist/tailwind.min.css" rel="stylesheet">
+    <!-- Aos Text Animation  -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!-- Glide Js slider  -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@glidejs/glide/dist/css/glide.core.min.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet">
+</head>
+<body>
+    <div class="social z-50 fixed left-5 bottom-4">
+        <div style="background-color: #282365;" class="w-10 text-white mb-2 h-10 rounded-full flex items-center justify-center">
+            <a href="https://www.linkedin.com/in/mohamed-fahmy-49a007303/"><i class="fa-brands fa-linkedin"></i></a>
+        </div>
+        <div style="background-color: #282365;" class="w-10 text-white mb-2 h-10 rounded-full flex items-center justify-center">
+            <a href="https://api.whatsapp.com/send?phone=01033525903"><i class="fa-brands fa-whatsapp"></i></a>
+        </div>
+    </div>
+    <header class="py-4 z-50 fixed left-0 top-0 w-full">
+        <div class="container px-10 lg:px-20 mx-auto flex justify-between items-center">
+            <div  class="logo">
+                <a href="./index.html" class="text-xl italic font-semibold">KANSOSY{..}</a>
+            </div>
+            <label class="burger lg:hidden" for="burger">
+                <input type="checkbox" id="burger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </label>
+            
+            <div class="content z-50">
+                <ul class="lg:flex  lg:justify-between lg:items-center font-bold gap-3 items-center">
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#reviews">Reviews</a></li>
+                    <li><a href="#contact-us">Contact Us</a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+    <div id="about" class="About mt-40 lg:mt-10 lg:py-28">
+        <div class="lg:flex text-center lg:text-left container px-10 lg:px-20 mx-auto gap-10 justify-between items-center">
+            <div class="mb-10">
+                <h2 style="color: rgb(17, 23, 37);" class="font-bold md:text-4xl">HELLO</h2>
+                <h2 style="color: rgb(17, 23, 37);" class="font-bold my-5 text-4xl md:text-6xl">I'M MOHAMED FAHMY</h2>
+                <p class="font-bold uppercase" style="color: rgb(172, 100, 6);">I'm Into Frontend Development</p>
+            </div>
+            <div class="rounded-full w-1/3 flex justify-center items-center overflow-hidden relative mx-auto">
+                <div style="background: linear-gradient(to top, rgba(17, 23, 37, 0.48) 0%, #1e8fcc62 100%);" class="overlay rounded-full absolute left-0 top-0 w-full h-full"></div>
+                <img  class="image w-full  rounded-full" src="./images/01.jpg" alt="">
+            </div>
+        </div>
+    </div>
+    <div id="skills" class="skills text-center py-10 lg:py-20">
+        <h1 data-aos-delay="200" data-aos-duration="2000" data-aos="fade-up" style="color: #282365;" class="font-bold mb-10 text-4xl">Skills</h1>
+        <div class="box container px-10 lg:px-20 mx-auto gap-y-10 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6">
+            <div data-aos-delay="200" data-aos-duration="2000" data-aos="fade-right" class="text-center">
+                <div class="flex items-center justify-center">
+                    <img src="./images/html-5--v1.webp" alt="">
+                </div>
+                <p class="font-bold">Html</p>
+            </div>
+            <div data-aos-delay="400" data-aos-duration="2000" data-aos="fade-right" class="text-center">
+                <div class="flex items-center justify-center">
+                    <img src="./images/css3.webp" alt="">
+                </div>
+                <p class="font-bold">Css</p>
+            </div>
+            <div data-aos-delay="600" data-aos-duration="2000" data-aos="fade-right" class="text-center">
+                <div class="flex items-center justify-center">
+                    <img src="./images/javascript--v1.webp" alt="">
+                </div>
+                <p class="font-bold">JavaScript</p>
+            </div>
+            <div data-aos-delay="800" data-aos-duration="2000" data-aos="fade-right" class="text-center">
+                <div class="flex items-center justify-center">
+                    <img src="./images/bootstrap.webp" alt="">
+                </div>
+                <p class="font-bold">Bootstrap</p>
+            </div>
+            <div data-aos-delay="1000" data-aos-duration="2000" data-aos="fade-right" class="text-center">
+                <div class="flex items-center justify-center">
+                    <img src="./images/tailwindcss.webp" alt="">
+                </div>
+                <p class="font-bold">Tailwind</p>
+            </div>
+            <div data-aos-delay="1200" data-aos-duration="2000" data-aos="fade-right" class="text-center">
+                <div class="flex items-center justify-center">
+                    <img src="./images/c45beac6b53a29b8a27da13e7c683714.png" alt="">
+                </div>
+                <p class="font-bold">Wordpress</p>
+            </div>
+        </div>
+    </div>
+    <div id="projects" class="projects py-20">
+        <div class="contanier text-center px-5 lg:px-20 mx-auto">
+            <h1 data-aos-delay="200" data-aos-duration="2000" data-aos="fade-up" style="color: #282365;" class="font-bold  mb-10 text-4xl">Projects</h1>
+            <div class="fillters my-5 mx-auto flex items-center justify-center gap-5">
+                <div data-filter="All" class="fillter font-bold"><a>All</a></div>
+                <div data-filter="E-commerce" class="fillter font-bold"><a>E-Commerce</a></div>
+                <div data-filter="Native" class="fillter font-bold"><a>Native</a></div>
+                <div data-filter="other" class="fillter font-bold"><a>Other</a></div>
+                <!-- <form class="" action="">
+                    <input type="search" name="" id="">
+                    <button class="text-white " type="">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </button>
+                </form> -->
+            </div>
+            <div class="Projects grid md:grid-cols-2  lg:grid-cols-3  mx-auto gap-5 mt-10">
+                <div class="box-item project mx-auto" data-project="E-commerce">
+                    <div class="flip-box">
+                    <div style="background-image: url('./images/al-mohandes.png');"  class="flip-box-front rounded-md  relative text-center" >
+                        <div style="background-color: #132a40ad;" class="overlay rounded-md  absolute left-0 top-0  w-full h-full"></div>
+                        <div class="inner text-white">
+                        <h3 class="flip-box-header font-bold text-3xl  my-2">E-Commerce</h3>
+                        <p><strong>Tech Stack:</strong> CSS3, Wordpress</p>
+                        <img src="https://s25.postimg.cc/65hsttv9b/cta-arrow.png" alt="" class="flip-box-img">
+                        </div>
+                    </div>
+                    <div class="flip-box-back rounded-md text-center">
+                        <div class="inner text-white">
+                        <h3 class="flip-box-header font-bold text-3xl">AL-Mohandes</h3>
+                        <p>Woocommerce Website</p>
+                        <button  class="flip-box-button">
+                            <a href="https://al-mohandes.com/" target="_blank" rel="noopener noreferrer">
+                                Show Site
+                            </a>
+                        </button>
+                        </div>
+                    </div>
+                    </div>
+                    </div>
+                <div class="box-item project mx-auto" data-project="E-commerce">
+                    <div class="flip-box ">
+                    <div style="background-image: url('./images/megafresh.png');"  class="flip-box-front rounded-md  relative text-center" >
+                        <div style="background-color: #132a40ad;" class="overlay rounded-md  absolute left-0 top-0  w-full h-full"></div>
+                        <div class="inner text-white">
+                        <h3 class="flip-box-header font-bold text-3xl my-2">E-Commerce</h3>
+                        <p><strong>Tech Stack:</strong> CSS3, Wordpress</p>
+                        <img src="https://s25.postimg.cc/65hsttv9b/cta-arrow.png" alt="" class="flip-box-img">
+                        </div>
+                    </div>
+                    <div class="flip-box-back rounded-md text-center">
+                        <div class="inner text-white">
+                        <h3 class="flip-box-header font-bold text-3xl">Megafresh</h3>
+                        <p>Woocommerce Website</p>
+                        <button  class="flip-box-button">
+                            <a href="https://megafresh.ca/" target="_blank" rel="noopener noreferrer">
+                                Show Site
+                            </a>
+                        </button>
+                        </div>
+                    </div>
+                    </div>
+                    </div>
+                <div class="box-item project mx-auto" data-project="E-commerce">
+                    <div class="flip-box ">
+                    <div style="background-image: url('./images/Rootswebsite.png');"  class="flip-box-front rounded-md  relative text-center" >
+                        <div style="background-color: #132a40ad;" class="overlay rounded-md  absolute left-0 top-0  w-full h-full"></div>
+                        <div class="inner text-white">
+                        <h3 class="flip-box-header font-bold text-3xl my-2">E-Commerce</h3>
+                        <p><strong>Tech Stack:</strong> CSS3, Wordpress</p>
+                        <img src="https://s25.postimg.cc/65hsttv9b/cta-arrow.png" alt="" class="flip-box-img">
+                        </div>
+                    </div>
+                    <div class="flip-box-back rounded-md text-center">
+                        <div class="inner text-white">
+                        <h3 class="flip-box-header font-bold text-3xl">Roots</h3>
+                        <p>Woocommerce Website</p>
+                        <button  class="flip-box-button">
+                            <a href="https://al-mohandes.com/" target="_blank" rel="noopener noreferrer">
+                                Show Site
+                            </a>
+                        </button>
+                        </div>
+                    </div>
+                    </div>
+                    </div>
+                <div class="box-item project mx-auto" data-project="Native">
+                    <div class="flip-box">
+                    <div style="background-image: url('./images/Screenshot\ 2024-11-23\ 043421.png');"  class="flip-box-front rounded-md  relative text-center" >
+                        <div style="background-color: #132a40ad;" class="overlay rounded-md  absolute left-0 top-0  w-full h-full"></div>
+                        <div class="inner text-white">
+                        <h3 class="flip-box-header font-bold text-3xl my-2">Custom Theme</h3>
+                        <p><strong>Tech Stack:</strong>Html, CSS3, Wordpress, Tailwind, Javascript</p>
+                        <img src="https://s25.postimg.cc/65hsttv9b/cta-arrow.png" alt="" class="flip-box-img">
+                        </div>
+                    </div>
+                    <div class="flip-box-back rounded-md text-center">
+                        <div class="inner text-white">
+                        <h3 class="flip-box-header font-bold text-3xl">innovate</h3>
+                        <p>Translation Website</p>
+                        <button  class="flip-box-button">
+                            <a href="https://innovateserv.com/" target="_blank" rel="noopener noreferrer">
+                                Show Site
+                            </a>
+                        </button>
+                        </div>
+                    </div>
+                    </div>
+                    </div>
+                <div class="box-item project mx-auto" data-project="Native">
+                    <div class="flip-box ">
+                    <div style="background-image: url('./images/Screenshot\ 2024-11-23\ 174151.png');"  class="flip-box-front rounded-md  relative text-center" >
+                        <div style="background-color: #132a40ad;" class="overlay rounded-md  absolute left-0 top-0  w-full h-full"></div>
+                        <div class="inner text-white">
+                        <h3 class="flip-box-header font-bold text-3xl my-2">E-Commerce Custom Theme</h3>
+                        <p><strong>Tech Stack:</strong>Html, CSS3, Wordpress, Tailwind, Javascript</p>
+                        <img src="https://s25.postimg.cc/65hsttv9b/cta-arrow.png" alt="" class="flip-box-img">
+                        </div>
+                    </div>
+                    <div class="flip-box-back rounded-md text-center">
+                        <div class="inner text-white">
+                        <h3 class="flip-box-header font-bold text-3xl">Hiddengeme</h3>
+                        <p> Website</p>
+                        <button  class="flip-box-button">
+                            <a href="https://hiddengemegypt.com/" target="_blank" rel="noopener noreferrer">
+                                Show Site
+                            </a>
+                        </button>
+                        </div>
+                    </div>
+                    </div>
+                    </div>
+                <div class="box-item project mx-auto" data-project="other">
+                    <div class="flip-box ">
+                    <div style="background-image: url('./images/Archillins.png');"  class="flip-box-front rounded-md  relative text-center" >
+                        <div style="background-color: #132a40ad;" class="overlay rounded-md  absolute left-0 top-0  w-full h-full"></div>
+                        <div class="inner text-white">
+                        <h3 class="flip-box-header font-bold text-3xl my-2">Wordpress</h3>
+                        <p><strong>Tech Stack:</strong> CSS3, Wordpress</p>
+                        <img src="https://s25.postimg.cc/65hsttv9b/cta-arrow.png" alt="" class="flip-box-img">
+                        </div>
+                    </div>
+                    <div class="flip-box-back rounded-md text-center">
+                        <div class="inner text-white">
+                        <h3 class="flip-box-header font-bold text-3xl">Archillins</h3>
+                        <p>Website</p>
+                        <button  class="flip-box-button">
+                            <a href="https://archilines.net/" target="_blank" rel="noopener noreferrer">
+                                Show Site
+                            </a>
+                        </button>
+                        </div>
+                    </div>
+                    </div>
+                    </div>
+                <!-- <div data-aos-delay="200" data-aos-duration="1000" data-aos="fade-down" data-project="Wordpress" class="project shadow-black shadow-md rounded-md p-5">
+                    <div class="link relative overflow-hidden">
+                        <img style="width: 400px;" class="rounded-md mx-auto" src="./images/Screenshot 2024-11-23 043421.png" alt="">
+                    </div>
+                    <div>
+                        <h1 class="font-bold my-5 text-xl">Innovate Website</h1>
+                        <p class="my-2"><strong>Tech Stack:</strong> CSS3, TailwindCSS, JavaScript</p>
+                        <a href="https://innovateserv.com/" target="_blank" class="font-bold show-btn"><i class="fa-solid fa-link"></i> Show More</a>
+                    </div>
+                </div>
+                <div data-aos-delay="600" data-aos-duration="1000" data-aos="fade-down" data-project="E-commerce" class="project shadow-black rounded-md p-5">
+                    <div class=" link relative overflow-hidden">
+                        <img style="width: 400px;" class="rounded-md mx-auto" src="./images/Screenshot 2024-11-23 174151.png" alt="">
+                    </div>
+                    <div>
+                        <h1 class="font-bold my-5 text-xl">Hiddengeme Website</h1>
+                        <p class="my-2"><strong>Tech Stack:</strong> CSS3, TailwindCSS, JavaScript, Wordpress</p>
+                        <a href="https://hiddengemegypt.com/" target="_blank" class="font-bold show-btn"><i class="fa-solid fa-link"></i> Show More</a>
+                    </div>
+                </div>
+                <div data-aos-delay="1000" data-aos-duration="1000" data-aos="fade-down" data-project="E-commerce" class="project shadow-black rounded-md p-5">
+                    <div class=" link relative overflow-hidden">
+                        <img style="width: 400px;" class="rounded-md mx-auto" src="./images/megafresh.png" alt="">
+                    </div>
+                    <div>
+                        <h1 class="font-bold my-5 text-xl">Megafresh Website</h1>
+                        <p class="my-2"><strong>Tech Stack:</strong> CSS3, Wordpress</p>
+                        <a href="https://megafresh.ca/"target="_blank" class="font-bold show-btn"><i class="fa-solid fa-link"></i> Show More</a>
+                    </div>
+                </div>
+                <div data-aos-delay="1400" data-aos-duration="1000" data-aos="fade-down" data-project="E-commerce" class="project shadow-black rounded-md p-5">
+                    <div class=" link relative overflow-hidden">
+                        <img style="width: 400px;" class="rounded-md mx-auto" src="./images/Rootswebsite.png" alt="">
+                    </div>
+                    <div>
+                        <h1 class="font-bold my-5 text-xl">Roots Website</h1>
+                        <p class="my-2"><strong>Tech Stack:</strong> CSS3, Wordpress</p>
+                        <a href="https://roots-pharmacy.com/"target="_blank" class="font-bold show-btn"><i class="fa-solid fa-link"></i> Show More</a>
+                    </div>
+                </div>
+                <div data-aos-delay="1800" data-aos-duration="1000" data-aos="fade-down" data-project="E-commerce" class="project shadow-black rounded-md p-5">
+                    <div class=" link relative overflow-hidden">
+                        <img style="width: 400px;" class="rounded-md mx-auto" src="./images/al-mohandes.png" alt="">
+                    </div>
+                    <div>
+                        <h1 class="font-bold my-5 text-xl">Al-Mohandes Website</h1>
+                        <p class="my-2"><strong>Tech Stack:</strong> CSS3, Wordpress</p>
+                        <a href="https://al-mohandes.com/"target="_blank" class="font-bold show-btn"><i class="fa-solid fa-link"></i> Show More</a>
+                    </div>
+                </div>
+                <div data-aos-delay="2200" data-aos-duration="1000" data-aos="fade-down" data-project="Wordpress" class="project shadow-black rounded-md p-5">
+                    <div class=" link relative overflow-hidden">
+                        <img style="width: 400px;" class="rounded-md mx-auto" src="./images/Archillins.png" alt="">
+                    </div>
+                    <div>
+                        <h1 class="font-bold my-5 text-xl">Archillins Website</h1>
+                        <p class="my-2"><strong>Tech Stack:</strong> CSS3, Wordpress</p>
+                        <a href="https://archilines.net/"target="_blank" class="font-bold show-btn"><i class="fa-solid fa-link"></i> Show More</a>
+                    </div>
+                </div> -->
+            </div>
+        </div>
+    </div>
+    <div data-aos-delay="200" data-aos-duration="2000" data-aos="fade-right" id="reviews" class="Reviews py-20 bg-gray-900">
+        <div class="container text-center mx-auto px-4 lg:px-28">
+            <h1 data-aos-delay="200" data-aos-duration="2000" data-aos="fade-up" style="color: #ffffff;" class="font-bold mb-10 text-4xl">Reviews </h1>
+          <div class="glide relative">
+            <div class="glide__track" data-glide-el="track">
+              <ul class="glide__slides">
+                <li class="glide__slide flex justify-center items-center">
+                  <div class="main-rev m-5 p-6 text-center shadow-lg bg-black rounded-2xl relative w-full max-w-md">
+                    <div class="w-20 h-20 mx-auto mb-2">
+                      <img class="rounded-full shadow-md" src="./images/avatar.png" alt="Reviewer Avatar">
+                    </div>
+                    <div>
+                      <h1 class="text-white font-bold text-lg lg:text-xl">M. Ahmed</h1>
+                      <p class="text-white text-sm lg:text-base my-4">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt illum asperiores culpa aliquam maiores quibusdam eum, odit alias eaque cupiditate!
+                      </p>
+                    </div>
+                    <div class="flex items-center justify-center gap-2">
+                      <i class="fa-solid fa-star text-yellow-400"></i>
+                      <i class="fa-solid fa-star text-yellow-400"></i>
+                      <i class="fa-solid fa-star text-yellow-400"></i>
+                      <i class="fa-solid fa-star text-yellow-400"></i>
+                      <i class="fa-solid fa-star text-yellow-400"></i>
+                    </div>
+                  </div>
+                </li>
+                <li class="glide__slide flex justify-center items-center">
+                  <div class="main-rev m-5 p-6 text-center shadow-lg bg-black rounded-2xl relative w-full max-w-md">
+                    <div class="w-20 h-20 mx-auto relative -top-8">
+                      <img class="rounded-full shadow-md" src="./images/avatar.png" alt="Reviewer Avatar">
+                    </div>
+                    <div>
+                      <h1 class="text-white font-bold text-lg lg:text-xl">M. Ahmed</h1>
+                      <p class="text-white text-sm lg:text-base my-4">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt illum asperiores culpa aliquam maiores quibusdam eum, odit alias eaque cupiditate!
+                      </p>
+                    </div>
+                    <div class="flex items-center justify-center gap-2">
+                      <i class="fa-solid fa-star text-yellow-400"></i>
+                      <i class="fa-solid fa-star text-yellow-400"></i>
+                      <i class="fa-solid fa-star text-yellow-400"></i>
+                      <i class="fa-solid fa-star text-yellow-400"></i>
+                      <i class="fa-solid fa-star text-yellow-400"></i>
+                    </div>
+                  </div>
+                </li>
+                <li class="glide__slide flex justify-center items-center">
+                  <div class="main-rev m-5 p-6 text-center shadow-lg bg-black rounded-2xl relative w-full max-w-md">
+                    <div class="w-20 h-20 mx-auto relative -top-8">
+                      <img class="rounded-full shadow-md" src="./images/avatar.png" alt="Reviewer Avatar">
+                    </div>
+                    <div>
+                      <h1 class="text-white font-bold text-lg lg:text-xl">M. Ahmed</h1>
+                      <p class="text-white text-sm lg:text-base my-4">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt illum asperiores culpa aliquam maiores quibusdam eum, odit alias eaque cupiditate!
+                      </p>
+                    </div>
+                    <div class="flex items-center justify-center gap-2">
+                      <i class="fa-solid fa-star text-yellow-400"></i>
+                      <i class="fa-solid fa-star text-yellow-400"></i>
+                      <i class="fa-solid fa-star text-yellow-400"></i>
+                      <i class="fa-solid fa-star text-yellow-400"></i>
+                      <i class="fa-solid fa-star text-yellow-400"></i>
+                    </div>
+                  </div>
+                </li>
+                <!-- Add other slides similarly -->
+              </ul>
+              <div class="glide__arrows" data-glide-el="controls">
+                <button class="glide__arrow glide__arrow--left" data-glide-dir="<"><i class="fa-solid text-white fa-arrow-left"></i></button>
+                <button class="glide__arrow glide__arrow--right" data-glide-dir=">"><i class="fa-solid text-white fa-arrow-right"></i></button>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+    <div id="contact-us" class="py-20">
+        <h1 data-aos-delay="200" data-aos-duration="2000" data-aos="fade-up" style="color: #282365;" class="font-bold text-center mb-10 text-4xl">Contact Us</h1>
+        <div class="container flex flex-col md:flex-row items-center justify-evenly mx-auto px-10 lg:px-28">
+            <div class="md:w-1/2 mx-auto  shadow-md rounded-lg p-8">
+                <form action="https://formsubmit.co/mohamedkansosy9@gmail.com" method="POST" class="space-y-6">
+                    <!-- Name -->
+                    <div>
+                        <label for="name" class="block text-sm font-medium text-gray-700">Name</label>
+                        <input 
+                            type="text" 
+                            id="name" 
+                            name="name" 
+                            required 
+                            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+                            placeholder="Your Name">
+                    </div>
+                    <!-- Email -->
+                    <div>
+                        <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
+                        <input 
+                            type="email" 
+                            id="email" 
+                            name="email" 
+                            required 
+                            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+                            placeholder="Your Email">
+                    </div>
+                    <!-- Message -->
+                    <div>
+                        <label for="message" class="block text-sm font-medium text-gray-700">Message</label>
+                        <textarea 
+                            id="message" 
+                            name="message" 
+                            rows="5" 
+                            required 
+                            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+                            placeholder="Write your message here"></textarea>
+                    </div>
+                    <!-- Submit Button -->
+                    <div>
+                        <button 
+                        style="background-color: #282365;"
+                            type="submit" 
+                            class="w-full  text-white font-medium py-2 px-4 rounded-md shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+                            Send Message
+                        </button>
+                    </div>
+                </form>
+            </div>
+            <div><img style="width: 400px;" data-aos="zoom-in" data-aos-duration="1000" src="./images/3d-portrait-people.png" alt=""></div>
+        </div>
+    </div>
+</body>
+<script src="main.js">
+</script>
+<script src="https://cdn.jsdelivr.net/npm/@glidejs/glide/dist/glide.min.js"></script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+    AOS.init();
+</script>
+<script>
+    const glide = new Glide('.glide', {
+        type: 'slider',
+        startAt: 0,
+        perView: 1,
+    });
+    glide.mount();
+</script>
+</html>
