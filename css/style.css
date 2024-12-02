@@ -1,3 +1,4 @@
+
 *{
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
@@ -8,15 +9,14 @@
 }
 body {
     font-family: "Montserrat", sans-serif !important;
+
 }
 a {
     text-decoration: none;
 }
-/* .About{
-    background-image: url('/images/01.jpg') ;
-    background-position: center;
-    background-size: cover;
-} */
+.About .mohamels{
+    color:#fff;
+}
 :root {
     --blue-color: #89A8B2;
     --blue-alt-color: #B3C8CF;
