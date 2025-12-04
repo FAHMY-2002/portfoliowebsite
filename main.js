@@ -129,3 +129,25 @@ if (window.tsParticles) {
         fullScreen: { enable: false, zIndex: 0 }
     });
 }
+
+// Parallax Fade-out Animation for Hero Section
+const heroSection = document.querySelector('#about');
+const heroContent = heroSection ? heroSection.querySelector('.container') : null;
+
+if (heroSection && heroContent) {
+    window.addEventListener('scroll', () => {
+        const scrollPosition = window.scrollY;
+        const heroHeight = heroSection.offsetHeight;
+
+        // Calculate opacity (starts at 1, goes to 0 as we scroll down 70% of hero height)
+        const opacity = 1 - (scrollPosition / (heroHeight * 0.7));
+
+        // Calculate translation (moves up slightly)
+        const translateY = scrollPosition * 0.4;
+
+        if (scrollPosition < heroHeight) {
+            heroContent.style.opacity = Math.max(0, opacity);
+            heroContent.style.transform = `translateY(${translateY}px)`;
+        }
+    });
+}
