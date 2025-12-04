@@ -1,75 +1,131 @@
+// Mobile Menu Logic
+const burger = document.querySelector("#burger");
+const menu = document.querySelector(".content");
 
-let changeImg = document.querySelector(".About")
-console.log(changeImg)
-let imageArray =["01.jpg","02.jpg","03.webp"]
+if (burger && menu) {
+    burger.addEventListener("change", () => {
+        if (burger.checked) {
+            menu.classList.add("active");
+            // Prevent scrolling when menu is open
+            document.body.style.overflow = "hidden";
+        } else {
+            menu.classList.remove("active");
+            document.body.style.overflow = "auto";
+        }
+    });
 
-// setInterval(() => {
-//     let rondomImg = Math.floor(Math.random() * imageArray.length);
-//     changeImg.style.backgroundImage = 'url("images/'+ imageArray[rondomImg] +'")';
-// }, 1000);
-
-let menu = document.querySelector(".content")
-let bars = document.querySelector(".burger")
-let changeColor = document.querySelectorAll(".burger span")
-
-// let closBtn = document.querySelector(".close")
-
-burger.onclick =() => { 
-    menu.classList.toggle("active")
+    // Close menu when clicking a link
+    menu.querySelectorAll("a").forEach(link => {
+        link.addEventListener("click", () => {
+            burger.checked = false;
+            menu.classList.remove("active");
+            document.body.style.overflow = "auto";
+        });
+    });
 }
 
+// Project Filtering Logic
+const filterButtons = document.querySelectorAll("[data-filter]");
+const projectCards = document.querySelectorAll(".project-card");
 
-let fillters = document.querySelectorAll(".fillter")
-let project = document.querySelectorAll(".project")
-fillters.forEach((element) => {
-    element.onclick= () =>{
-        fillters.forEach((filter) => {
-            filter.classList.remove("act")
-        })
-        element.classList.add("act")        
-        project.forEach((ele) =>{
-            if(ele.dataset.project === element.dataset.filter) {
-                ele.style.display="block";
-            }else if(element.dataset.filter === "All" ){
-                ele.style.display="block";
-            }else{
-                ele.style.display="none";
+filterButtons.forEach(button => {
+    button.addEventListener("click", () => {
+        // Remove active class from all buttons
+        filterButtons.forEach(btn => btn.classList.remove("active", "bg-accent", "text-white", "border-accent"));
+        filterButtons.forEach(btn => btn.classList.add("bg-bg", "border-white/10", "text-gray-200"));
+
+        // Add active class to clicked button
+        button.classList.add("active", "bg-accent", "text-white", "border-accent");
+        button.classList.remove("bg-bg", "border-white/10", "text-gray-200");
+
+        const filterValue = button.getAttribute("data-filter");
+
+        projectCards.forEach(card => {
+            if (filterValue === "All" || card.getAttribute("data-project") === filterValue) {
+                card.style.display = "block";
+                // Add a small animation for reappearing items
+                card.animate([
+                    { transform: 'scale(0.9)', opacity: 0 },
+                    { transform: 'scale(1)', opacity: 1 }
+                ], {
+                    duration: 300,
+                    easing: 'ease-out'
+                });
+            } else {
+                card.style.display = "none";
             }
-        })
-    }
+        });
+    });
 });
 
-// let search = document.querySelector('[type="search"]')
-// let click = document.querySelector('form button')
-
-
-// search.oninput = ()=> {
-//     project.forEach((ele) =>{
-//         if(ele.dataset.project.toLowerCase().includes(search.value.toLowerCase())) {
-//             ele.style.display="block";
-//         }else{
-//             ele.style.display="none";
-//     }
-//     })
-// }
-// click.onclick=((e)=>{
-//     e.preventDefault()
-//     project.forEach((ele) =>{
-//         if(search.value === ele.dataset.project){
-//             ele.style.display="block";
-//         }else{
-//             ele.style.display="none";
-//         }
-//     })
-// })
-// fillters.forEach((filter) => {
-//     filter.onclick = () => {
-//         Array.from(project).forEach((project) => {
-//             project.style.display = "none"
-//         })
-//         Array.from(project).filter((x) =>  x.dataset.project == filter.dataset.filter).forEach((project) => {
-//             project.style.display = "block"
-//         })
-//     }
-// })
-
+// tsparticles Initialization
+if (window.tsParticles) {
+    tsParticles.load("tsparticles", {
+        fpsLimit: 60,
+        interactivity: {
+            events: {
+                onClick: {
+                    enable: true,
+                    mode: "push",
+                },
+                onHover: {
+                    enable: true,
+                    mode: "repulse",
+                },
+                resize: true,
+            },
+            modes: {
+                push: {
+                    quantity: 4,
+                },
+                repulse: {
+                    distance: 200,
+                    duration: 0.4,
+                },
+            },
+        },
+        particles: {
+            color: {
+                value: "#38bdf8",
+            },
+            links: {
+                color: "#38bdf8",
+                distance: 150,
+                enable: true,
+                opacity: 0.2,
+                width: 1,
+            },
+            collisions: {
+                enable: true,
+            },
+            move: {
+                direction: "none",
+                enable: true,
+                outModes: {
+                    default: "bounce",
+                },
+                random: false,
+                speed: 1,
+                straight: false,
+            },
+            number: {
+                density: {
+                    enable: true,
+                    area: 800,
+                },
+                value: 60,
+            },
+            opacity: {
+                value: 0.3,
+            },
+            shape: {
+                type: "circle",
+            },
+            size: {
+                value: { min: 1, max: 3 },
+            },
+        },
+        detectRetina: true,
+        fullScreen: { enable: false, zIndex: 0 }
+    });
+}
