@@ -55,6 +55,13 @@ filterButtons.forEach(button => {
                 card.style.display = "none";
             }
         });
+
+        // Recalculate AOS positions after filtering
+        setTimeout(() => {
+            if (typeof AOS !== 'undefined') {
+                AOS.refresh();
+            }
+        }, 350);
     });
 });
 
