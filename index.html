@@ -420,8 +420,29 @@
                                 class="contact-input w-full px-4 py-3 rounded-lg bg-bg focus:ring-0"
                                 placeholder="Your message..."></textarea>
                         </div>
+                        
+                        <!-- FormSubmit settings for custom success page -->
+                        <input type="hidden" name="_next" id="next-url">
+                        <!-- Disable Captcha for better UX -->
+                        <input type="hidden" name="_captcha" value="false">
+                        <!-- Honeypot for spam bot prevention -->
+                        <input type="text" name="_honey" style="display:none">
+                        
                         <button type="submit" class="btn-primary w-full">Send Message</button>
                     </form>
+                    
+                    <script>
+                        // Dynamically set the _next URL
+                        // This allows it to work locally, on a local server, or on an online domain
+                        const nextUrlInput = document.getElementById('next-url');
+                        let currentUrl = window.location.href.split('index.html')[0].split('#')[0];
+                        if (!currentUrl.endsWith('/')) {
+                            currentUrl += '/';
+                        }
+                        // For file:// URLs, this might not work perfectly due to FormSubmit restrictions, 
+                        // but it will work flawlessly when hosted on any real domain or local server.
+                        nextUrlInput.value = currentUrl + 'success.html';
+                    </script>
                 </div>
 
                 <div class="w-full lg:w-1/3 text-center lg:text-left" data-aos="fade-left">

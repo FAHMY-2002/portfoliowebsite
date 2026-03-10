@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth overflow-x-hidden">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Message Sent | Mohamed Fahmy</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="./css/all.min.css">
+    <link rel="stylesheet" href="./css/normalise.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <!-- Font Awesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- Tailwind (CDN for utility classes) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        bg: '#0f172a',
+                        'bg-alt': '#1e293b',
+                        accent: '#38bdf8',
+                    },
+                    fontFamily: {
+                        sans: ['Outfit', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- AOS Animation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <!-- tsparticles -->
+    <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.11.1/tsparticles.bundle.min.js"></script>
+</head>
+
+<body class="bg-bg text-gray-200 font-sans antialiased overflow-x-hidden w-full h-screen flex flex-col">
+
+    <!-- Header -->
+    <header class="fixed w-full top-0 z-40 transition-all duration-300">
+        <div class="container mx-auto px-3 lg:px-20 py-4 flex justify-between items-center">
+            <a href="index.html" class="text-2xl font-bold tracking-tighter">
+                Mohamed Div<span class="text-accent">
+                    <i class="fa-solid fa-laptop-code"></i>
+                </span>
+            </a>
+            
+            <a href="index.html" class="px-5 py-2 rounded-full border border-white/20 hover:border-accent hover:text-accent transition-all flex items-center gap-2">
+                <i class="fa-solid fa-arrow-left"></i> Back to Portfolio
+            </a>
+        </div>
+    </header>
+
+    <!-- Success Section -->
+    <section class="flex-grow flex items-center justify-center pt-20 relative overflow-hidden">
+        <!-- tsparticles container -->
+        <div id="tsparticles" class="absolute inset-0 z-0"></div>
+        <!-- Background Blobs -->
+        <div class="hero-blob top-1/4 left-1/4 bg-blue-500/20"></div>
+        <div class="hero-blob bottom-1/4 right-1/4 bg-green-500/20 animation-delay-2000"></div>
+
+        <div class="container mx-auto px-10 relative z-10 text-center max-w-2xl">
+            <div data-aos="zoom-in" data-aos-duration="1000" class="glass p-12 rounded-3xl border border-white/10 shadow-2xl relative">
+                <!-- Glowing Icon -->
+                <div class="w-24 h-24 bg-gradient-to-br from-green-400 to-emerald-600 rounded-full mx-auto flex items-center justify-center mb-8 shadow-[0_0_30px_rgba(52,211,153,0.5)] animate-bounce" style="animation-duration: 3s;">
+                    <i class="fa-solid fa-check text-4xl text-white"></i>
+                </div>
+
+                <h1 class="text-4xl md:text-5xl font-extrabold mb-4">
+                    Message <span class="text-gradient" style="background: linear-gradient(to right, #34d399, #10b981); -webkit-background-clip: text; background-clip: text; color: transparent; -webkit-text-fill-color: transparent;">Sent Successfully!</span>
+                </h1>
+                
+                <p class="text-xl text-gray-400 mb-8 leading-relaxed">
+                    Thank you for reaching out. I've received your message and will get back to you as soon as possible.
+                </p>
+
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="index.html" class="btn-primary flex items-center justify-center gap-2">
+                        <i class="fa-solid fa-home"></i> Return Home
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-8 border-t border-white/5 text-center text-gray-500 text-sm mt-auto relative z-10">
+        <div class="container mx-auto px-10 lg:px-20">
+            <p>&copy; 2024 Mohamed Fahmy. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // Init AOS
+        AOS.init({
+            once: true,
+            offset: 100,
+            duration: 800,
+            easing: 'ease-out-cubic',
+        });
+
+        // tsparticles Initialization
+        if (window.tsParticles) {
+            tsParticles.load("tsparticles", {
+                fpsLimit: 60,
+                interactivity: {
+                    events: {
+                        onHover: {
+                            enable: true,
+                            mode: "repulse",
+                        },
+                        resize: true,
+                    },
+                    modes: {
+                        repulse: {
+                            distance: 150,
+                            duration: 0.4,
+                        },
+                    },
+                },
+                particles: {
+                    color: {
+                        value: "#10b981", // Green color to match success theme
+                    },
+                    links: {
+                        color: "#10b981",
+                        distance: 150,
+                        enable: true,
+                        opacity: 0.2,
+                        width: 1,
+                    },
+                    move: {
+                        direction: "none",
+                        enable: true,
+                        outModes: {
+                            default: "bounce",
+                        },
+                        random: false,
+                        speed: 1,
+                        straight: false,
+                    },
+                    number: {
+                        density: {
+                            enable: true,
+                            area: 800,
+                        },
+                        value: 40,
+                    },
+                    opacity: {
+                        value: 0.3,
+                    },
+                    shape: {
+                        type: "circle",
+                    },
+                    size: {
+                        value: { min: 1, max: 3 },
+                    },
+                },
+                detectRetina: true,
+                fullScreen: { enable: false, zIndex: 0 }
+            });
+        }
+
+        // To make sure redirecting from localhost, file, or domain works if it misses a trailing slash.
+        if (window.history.replaceState) {
+            window.history.replaceState(null, null, window.location.href);
+        }
+    </script>
+</body>
+
+</html>
