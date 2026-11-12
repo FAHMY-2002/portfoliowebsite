@@ -17,6 +17,8 @@ const MAP = {
   decoandesign: 'Screenshot 2026-03-10 124544.png',
   archilines: 'Archillins.png',
   'hm-gallery': 'Hm.png',
+  'construction-metallique': 'construction-metallique.png',
+  greenline: 'greenline.png',
   portrait: 'WhatsApp Image 2025-12-03 at 23.45.12_e8619099.jpg',
 };
 const WIDTHS = { default: [800, 1600], portrait: [480, 960] };

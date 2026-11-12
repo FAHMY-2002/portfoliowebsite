@@ -23,7 +23,8 @@ export function useIntro(scope) {
           const at = parseFloat(el.dataset.at || '0');
           switch (el.dataset.intro) {
             case 'chars': {
-              const split = SplitText.create(el, { type: 'chars', mask: 'chars', aria: ariaMode(el) });
+              // Words wrap the chars so a line can only break between words, never mid-word.
+              const split = SplitText.create(el, { type: 'words,chars', mask: 'chars', aria: ariaMode(el) });
               tl.from(split.chars, { yPercent: 105, duration: DUR.slow, stagger: 0.035 }, at);
               break;
             }

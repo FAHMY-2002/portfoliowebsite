@@ -10,6 +10,8 @@ import NotFound from './NotFound.jsx';
 import './Project.css';
 
 const pad = (n) => String(n).padStart(2, '0');
+// Longest word, in characters: lets CSS shrink long names so no word is wider than the screen.
+const fit = (name) => ({ '--fit': Math.max(...name.split(/\s+/).map((w) => w.length)) });
 
 export default function Project() {
   const { slug } = useParams();
@@ -40,7 +42,7 @@ export default function Project() {
           </p>
         </div>
 
-        <h1 className="project__name display" data-intro="chars" data-at="0">
+        <h1 className="project__name display" data-intro="chars" data-at="0" style={fit(project.name)}>
           {project.name}
         </h1>
 
@@ -64,6 +66,19 @@ export default function Project() {
       <div className="project__visual section wrap">
         <Media image={projectImage(project.image)} alt={`${project.name} website`} ratio={project.ratio} sizes="96vw" eager parallax={false} />
       </div>
+
+      {project.summary && (
+        <section className="project__about section wrap" aria-labelledby="project-about">
+          <div className="section-head" data-reveal="fade">
+            <h2 id="project-about" className="label">
+              {fields.about}
+            </h2>
+          </div>
+          <p className="project__summary lead" data-reveal="lines">
+            {project.summary}
+          </p>
+        </section>
+      )}
 
       <section className="project__stack section wrap" aria-labelledby="project-stack">
         <div className="section-head" data-reveal="fade">
@@ -92,7 +107,7 @@ export default function Project() {
           </span>
         </span>
         <span className="project__next-row">
-          <span className="project__next-name display" data-reveal="lines">
+          <span className="project__next-name display" data-reveal="lines" style={fit(next.name)}>
             {next.name}
           </span>
           <span className="project__next-media">

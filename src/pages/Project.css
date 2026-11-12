@@ -7,8 +7,9 @@
   justify-content: space-between;
   gap: var(--space-5);
 }
+/* --fit (longest word length) is set inline; 0.46em is the average uppercase glyph width. */
 .project__name {
-  font-size: clamp(3rem, 13.5vw, 16rem);
+  font-size: min(clamp(3rem, 13.5vw, 16rem), calc((100vw - 2 * var(--gutter)) / (var(--fit, 8) * 0.46)));
   margin: var(--space-8) 0 var(--space-6) -0.03em;
   text-wrap: balance;
 }
@@ -38,6 +39,14 @@
 .project__visual {
   padding-bottom: var(--section);
 }
+.project__about {
+  padding-bottom: var(--section);
+}
+.project__summary {
+  max-width: 44rem;
+  padding-top: var(--space-6);
+  text-wrap: pretty;
+}
 .project__stack {
   padding-bottom: var(--section);
 }
@@ -65,7 +74,7 @@
 }
 .project__next-name {
   display: block;
-  font-size: var(--fs-h1);
+  font-size: min(var(--fs-h1), calc((100vw - 2 * var(--gutter)) / (var(--fit, 8) * 0.46)));
   transition: transform var(--dur-base) var(--ease);
 }
 .project__next-media {
@@ -81,13 +90,19 @@
     justify-self: end;
     margin-top: calc(var(--space-8) * -1);
   }
-  /* Stack list is pushed right: the column the meta row does not use. */
+  /* Summary and stack list are pushed right: the column the meta row does not use. */
+  .project__summary {
+    margin-left: calc((100% + var(--gutter)) / 12 * 3);
+  }
   .project__stack-list {
     padding-left: calc((100% + var(--gutter)) / 12 * 3);
   }
   .project__next-row {
     grid-template-columns: minmax(0, 1fr) minmax(0, 30%);
     align-items: end;
+  }
+  .project__next-name {
+    font-size: min(var(--fs-h1), calc((100vw - 2 * var(--gutter)) * 0.66 / (var(--fit, 8) * 0.46)));
   }
 }
 @media (--hover) {

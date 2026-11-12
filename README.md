@@ -42,6 +42,8 @@ HTML are created automatically.
 
 **Year:** each project has `year: ''`. Fill it in and the field appears on the case-study page.
 
+**About the project:** add a `summary` paragraph to a project and it appears on its case-study page.
+
 ## Edit the design
 
 `src/styles/tokens.css` is the single source for colors, fonts, type scale, spacing,

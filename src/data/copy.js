@@ -32,7 +32,7 @@ export const copy = {
     back: 'All work',
     visit: 'Visit live site',
     next: 'Next project',
-    fields: { type: 'Type', role: 'Role', year: 'Year', category: 'Category', stack: 'Stack' },
+    fields: { type: 'Type', role: 'Role', year: 'Year', category: 'Category', stack: 'Stack', about: 'About the project' },
   },
   contact: {
     label: 'Contact',

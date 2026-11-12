@@ -1,6 +1,7 @@
 // Every project shown on the site. Edit text here; components never hard-code project content.
 // `image` is the base name of the files in src/assets/images (see scripts/optimize-images.mjs).
 // `year` is optional: leave it as '' and the field is hidden everywhere.
+// `summary` is optional: a short paragraph shown on the project's case-study page.
 export const categories = ['All', 'E-commerce', 'Native', 'Other'];
 
 export const projects = [
@@ -99,6 +100,34 @@ export const projects = [
     url: 'https://hmdecor.net/',
     image: 'hm-gallery',
     ratio: 2.2158,
+  },
+  {
+    slug: 'construction-metallique-lausanne',
+    name: 'Construction Métallique Lausanne',
+    description: 'Metalwork Lead-Generation Website',
+    category: 'Other',
+    role: 'WordPress Developer',
+    year: '',
+    stack: ['WordPress', 'Elementor Pro', 'Astra', 'WP Rocket'],
+    url: 'https://construction-metallique-lausanne.ch/',
+    image: 'construction-metallique',
+    ratio: 2.1605,
+    summary:
+      'A French-language WordPress site that connects clients in the canton of Vaud with partner metalworkers. Visitors pick their project type (stairs, railings, gates, glass roofs, steel frames…) right in the hero and go straight to a quote form. The page also covers the services, five completed projects, a four-step process, an FAQ and the communes served.',
+  },
+  {
+    slug: 'greenline',
+    name: 'Greenline Landscaping',
+    description: 'Landscape Design-Build Website',
+    category: 'Native',
+    role: 'Front-end Developer',
+    year: '',
+    stack: ['HTML', 'CSS', 'JavaScript', 'GSAP', 'Lenis'],
+    url: 'https://greenline.palmstudiolabs.com/',
+    image: 'greenline',
+    ratio: 2.1272,
+    summary:
+      'A hand-coded one-page site for a fixed-price landscape design-build company in Denver. GSAP (ScrollTrigger and SplitText) and Lenis drive the motion. The page has a hero slideshow, a five-step process timeline, a draggable before/after comparison, a material library slider, an FAQ and a quote form.',
   },
 ];
 
