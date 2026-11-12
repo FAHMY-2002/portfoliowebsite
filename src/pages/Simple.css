@@ -1,0 +1,25 @@
+/* Shared by the Thanks and 404 pages. */
+.simple__section {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-end;
+  gap: var(--space-5);
+  min-height: 86svh;
+  padding-top: calc(var(--header-h) + var(--space-8));
+  padding-bottom: var(--space-8);
+}
+.simple__section .label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6em;
+}
+.simple__title {
+  font-size: var(--fs-h1);
+  max-width: 9ch;
+  margin-left: -0.03em;
+}
+.simple__body {
+  max-width: 30rem;
+  color: var(--color-muted);
+}

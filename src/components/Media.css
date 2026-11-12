@@ -1,0 +1,32 @@
+.media {
+  position: relative;
+  overflow: hidden;
+  background: var(--color-line);
+}
+.media__inner,
+.media__inner img {
+  width: 100%;
+  height: 100%;
+}
+.media__inner img {
+  object-fit: cover;
+}
+.media__cover {
+  position: absolute;
+  inset: 0;
+  background: var(--color-bg);
+  transform: scaleY(0);
+  pointer-events: none;
+}
+/* Portrait: one-color treatment so the photo sits inside the palette. */
+.media--mono img {
+  filter: grayscale(1) contrast(1.08);
+}
+.media--mono::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--color-bg);
+  mix-blend-mode: multiply;
+  pointer-events: none;
+}

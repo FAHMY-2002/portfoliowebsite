@@ -1,0 +1,256 @@
+/* Reset + base + shared utilities. Component styles live next to each component. */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+* {
+  margin: 0;
+}
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  background: var(--color-bg);
+}
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+body {
+  min-height: 100svh;
+  background: var(--color-bg);
+  color: var(--color-ink);
+  font-family: var(--font-body);
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  overflow-x: clip;
+}
+img,
+svg,
+canvas {
+  display: block;
+  max-width: 100%;
+}
+img {
+  height: auto;
+}
+a {
+  color: inherit;
+  text-decoration: none;
+}
+button,
+input,
+textarea {
+  font: inherit;
+  color: inherit;
+}
+button {
+  background: none;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+}
+ul,
+ol {
+  padding: 0;
+  list-style: none;
+}
+h1,
+h2,
+h3,
+p {
+  overflow-wrap: break-word;
+}
+::selection {
+  background: var(--color-accent);
+  color: var(--color-ink);
+}
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 4px;
+}
+
+/* ---- Layout ---- */
+.app {
+  position: relative;
+}
+.wrap {
+  width: 100%;
+  padding-inline: var(--gutter);
+}
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  column-gap: var(--gutter);
+}
+@media (--md) {
+  .grid {
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+  }
+}
+/* Sections sit above the fixed 3D canvas. */
+.section {
+  position: relative;
+  z-index: var(--z-content);
+}
+.page {
+  min-height: 100svh;
+}
+
+/* ---- Type ---- */
+.display {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-stretch: 75%;
+  letter-spacing: var(--track-display);
+  line-height: var(--lh-tight);
+  text-transform: uppercase;
+}
+.label {
+  font-family: var(--font-mono);
+  font-size: var(--fs-label);
+  font-weight: 500;
+  letter-spacing: var(--track-label);
+  text-transform: uppercase;
+  line-height: 1.3;
+}
+.label--muted {
+  color: var(--color-muted);
+}
+.num {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+}
+.lead {
+  font-size: var(--fs-lead);
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+}
+.muted {
+  color: var(--color-muted);
+}
+
+/* ---- Section head: (01) Label ---- */
+.section-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--space-5);
+  padding-block: var(--space-4);
+  border-top: 1px solid var(--color-line);
+}
+.section-head__num {
+  color: var(--color-muted);
+  margin-right: var(--space-3);
+}
+
+/* ---- Underlined text link ---- */
+.link {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+  padding-block: 0.35em;
+}
+.link::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0.15em;
+  height: 1px;
+  background: currentColor;
+  transform: scaleX(1);
+  transform-origin: left;
+  transition: transform var(--dur-fast) var(--ease);
+}
+@media (--hover) {
+  .link:hover::after {
+    transform: scaleX(0);
+    transform-origin: right;
+  }
+}
+.arrow {
+  display: inline-block;
+  transition: transform var(--dur-fast) var(--ease);
+}
+@media (--hover) {
+  a:hover > .arrow,
+  button:hover > .arrow {
+    transform: translate(0.2em, -0.2em);
+  }
+}
+
+/* ---- Small "div" square used as a marker ---- */
+.box {
+  display: inline-block;
+  width: 0.62em;
+  height: 0.62em;
+  border: 1.5px solid currentColor;
+  flex: none;
+}
+.box--fill {
+  background: var(--color-accent);
+  border-color: var(--color-accent);
+}
+
+/* ---- "Available for work" status ---- */
+.status {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6em;
+}
+.dot {
+  display: inline-block;
+  width: 0.5rem;
+  height: 0.5rem;
+  background: var(--color-accent);
+  flex: none;
+}
+
+/* SplitText line masks need a little room for descenders. */
+.split-line {
+  padding-bottom: 0.08em;
+  margin-bottom: -0.08em;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.skip-link {
+  position: fixed;
+  top: var(--space-3);
+  left: var(--space-3);
+  z-index: calc(var(--z-cursor) + 1);
+  padding: var(--space-3) var(--space-4);
+  background: var(--color-ink);
+  color: var(--color-bg);
+  transform: translateY(-200%);
+}
+.skip-link:focus-visible {
+  transform: none;
+}
+
+@media (--reduced) {
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+}

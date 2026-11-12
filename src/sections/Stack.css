@@ -1,0 +1,64 @@
+.stack {
+  padding-block: var(--space-8);
+}
+.stack__inner {
+  display: flex;
+  flex-direction: column;
+}
+.stack__list {
+  display: grid;
+  padding-top: var(--space-6);
+}
+.stack__item {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-4);
+  padding-block: 0.12em;
+  font-size: clamp(2.4rem, 11vw, 4.5rem);
+}
+.stack__num {
+  width: 2.2em;
+  color: var(--color-muted);
+}
+.stack__name {
+  line-height: 0.95;
+}
+.stack__mark {
+  width: 0.36em;
+  height: 0.36em;
+  background: var(--color-accent);
+  align-self: center;
+  transform: scale(0);
+  transition: transform var(--dur-fast) var(--ease);
+}
+/* Dimmed rows only once JS is stepping through them. */
+/* 0.5 keeps the large text above 3:1 contrast while it waits its turn. */
+.stack--stepped .stack__name {
+  opacity: 0.5;
+  transition: opacity var(--dur-fast) var(--ease);
+}
+.stack--stepped .stack__item.is-active .stack__name {
+  opacity: 1;
+}
+.stack__item.is-active .stack__mark {
+  transform: scale(1);
+}
+@media (--lg) {
+  .stack {
+    padding-block: 0;
+  }
+  .stack__inner {
+    min-height: 100svh;
+    padding-top: calc(var(--header-h) + var(--space-4));
+    padding-bottom: var(--space-6);
+  }
+  .stack__list {
+    flex: 1;
+    align-content: center;
+    padding-top: 0;
+  }
+  .stack__item {
+    /* Nine rows must always fit one screen. */
+    font-size: min(5vw, 8.2svh);
+  }
+}

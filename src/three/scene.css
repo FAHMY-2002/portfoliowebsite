@@ -1,0 +1,17 @@
+/* The canvas is decorative: fixed behind the content, never interactive. */
+.scene {
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-scene);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity var(--dur-slow) var(--ease);
+}
+.scene.is-ready {
+  opacity: 1;
+}
+/* prefers-reduced-motion: one still frame that scrolls away with the first screen. */
+.scene--static {
+  position: absolute;
+  height: 100svh;
+}

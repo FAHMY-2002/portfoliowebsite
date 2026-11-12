@@ -1,0 +1,61 @@
+.about {
+  padding-block: var(--section);
+}
+.about__grid {
+  row-gap: var(--space-7);
+  padding-top: var(--space-7);
+}
+.about__statement {
+  grid-column: 1 / -1;
+  font-size: var(--fs-h3);
+  line-height: var(--lh-snug);
+  letter-spacing: -0.025em;
+}
+.about__portrait {
+  grid-column: 1 / span 3;
+}
+.about__body {
+  grid-column: 1 / -1;
+  display: grid;
+  gap: var(--space-4);
+  max-width: 34rem;
+  font-size: var(--fs-lead);
+  line-height: 1.35;
+}
+.about__body p + p {
+  color: var(--color-muted);
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
+}
+.about__facts {
+  grid-column: 1 / -1;
+  display: flex;
+  gap: var(--space-7);
+}
+.about__fact {
+  display: grid;
+  gap: var(--space-2);
+}
+.about__fact dd {
+  font-size: var(--fs-h3);
+}
+@media (--md) {
+  .about__grid {
+    row-gap: var(--space-8);
+  }
+  .about__statement {
+    grid-column: 1 / span 10;
+  }
+  /* Portrait is pushed off the text column: an intentional break from the grid. */
+  .about__portrait {
+    grid-column: 2 / span 3;
+    grid-row: 2 / span 2;
+  }
+  .about__body {
+    grid-column: 6 / span 5;
+  }
+  .about__facts {
+    grid-column: 6 / span 5;
+    align-self: end;
+  }
+}

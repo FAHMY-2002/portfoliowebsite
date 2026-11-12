@@ -1,0 +1,61 @@
+.round-btn__wrap {
+  display: inline-block;
+  will-change: transform;
+}
+.round-btn {
+  position: relative;
+  display: inline-grid;
+  place-content: center;
+  justify-items: center;
+  gap: var(--space-2);
+  width: clamp(8.5rem, 13vw, 12rem);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  text-align: center;
+  isolation: isolate;
+  overflow: hidden;
+}
+.round-btn::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  border-radius: 50%;
+  background: var(--color-ink);
+  transform: scale(0);
+  transition: transform var(--dur-fast) var(--ease);
+}
+.round-btn--accent {
+  background: var(--color-accent);
+  color: var(--color-ink);
+}
+.round-btn--accent::before {
+  background: var(--color-bg);
+}
+.round-btn--ink {
+  background: var(--color-ink);
+  color: var(--color-bg);
+}
+.round-btn--ink::before {
+  background: var(--color-accent);
+}
+.round-btn--ink .round-btn__text,
+.round-btn--ink .round-btn__arrow {
+  transition: color var(--dur-fast) var(--ease);
+}
+.round-btn__arrow {
+  font-size: 1.25rem;
+  line-height: 1;
+  transition: transform var(--dur-fast) var(--ease);
+}
+@media (--hover) {
+  .round-btn:hover::before {
+    transform: scale(1);
+  }
+  .round-btn--ink:hover {
+    color: var(--color-ink);
+  }
+  .round-btn:hover .round-btn__arrow {
+    transform: translate(0.2em, -0.2em);
+  }
+}

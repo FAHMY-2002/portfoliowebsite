@@ -1,0 +1,61 @@
+.hero {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 100svh;
+  padding-top: calc(var(--header-h) + var(--space-4));
+  padding-bottom: var(--space-4);
+}
+.hero__top {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--space-5);
+}
+.hero__bottom {
+  position: relative;
+}
+.hero__name {
+  font-size: var(--fs-mega);
+  /* Optical alignment: pull the first letter to the gutter. */
+  margin-left: -0.035em;
+}
+.hero__line {
+  display: block;
+  white-space: nowrap;
+}
+.hero__line--end {
+  text-align: right;
+}
+.hero__aside {
+  display: grid;
+  gap: var(--space-4);
+  max-width: 22rem;
+  margin-bottom: var(--space-6);
+}
+.hero__intro {
+  text-wrap: balance;
+}
+.hero__fallback {
+  position: absolute;
+  top: 16%;
+  right: var(--gutter);
+  width: min(52vw, 26rem);
+  height: auto;
+  pointer-events: none;
+}
+@media (--md) {
+  /* The intro sits in the gap left of the second name line: a deliberate grid break. */
+  .hero__aside {
+    position: absolute;
+    left: var(--gutter);
+    bottom: 0.9vw;
+    max-width: min(27vw, 26rem);
+    margin: 0;
+    z-index: 1;
+  }
+  .hero__fallback {
+    top: 12%;
+    right: 12%;
+    width: min(30vw, 30rem);
+  }
+}

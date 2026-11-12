@@ -1,0 +1,97 @@
+.project__head {
+  padding-top: calc(var(--header-h) + var(--space-4));
+}
+.project__bar {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--space-5);
+}
+.project__name {
+  font-size: clamp(3rem, 13.5vw, 16rem);
+  margin: var(--space-8) 0 var(--space-6) -0.03em;
+  text-wrap: balance;
+}
+.project__info {
+  row-gap: var(--space-6);
+  padding-block: var(--space-5) var(--space-7);
+  border-top: 1px solid var(--color-line);
+}
+.project__meta {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-5) var(--gutter);
+}
+.project__field {
+  display: grid;
+  gap: var(--space-2);
+  align-content: start;
+}
+.project__field dd {
+  font-size: var(--fs-lead);
+  line-height: 1.2;
+}
+.project__visit {
+  grid-column: 1 / -1;
+}
+.project__visual {
+  padding-bottom: var(--section);
+}
+.project__stack {
+  padding-bottom: var(--section);
+}
+.project__stack-list {
+  display: grid;
+  padding-top: var(--space-6);
+}
+.project__tech {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-4);
+  font-size: var(--fs-h2);
+}
+.project__tech .display {
+  line-height: 0.92;
+}
+.project__next {
+  display: block;
+  padding-bottom: var(--section);
+}
+.project__next-row {
+  display: grid;
+  gap: var(--space-6);
+  padding-top: var(--space-6);
+}
+.project__next-name {
+  display: block;
+  font-size: var(--fs-h1);
+  transition: transform var(--dur-base) var(--ease);
+}
+.project__next-media {
+  display: block;
+}
+@media (--md) {
+  .project__meta {
+    grid-column: 1 / span 9;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+  .project__visit {
+    grid-column: 10 / -1;
+    justify-self: end;
+    margin-top: calc(var(--space-8) * -1);
+  }
+  /* Stack list is pushed right: the column the meta row does not use. */
+  .project__stack-list {
+    padding-left: calc((100% + var(--gutter)) / 12 * 3);
+  }
+  .project__next-row {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 30%);
+    align-items: end;
+  }
+}
+@media (--hover) {
+  .project__next:hover .project__next-name {
+    transform: translateX(0.12em);
+  }
+}

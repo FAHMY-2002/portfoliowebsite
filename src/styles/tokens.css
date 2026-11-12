@@ -1,0 +1,84 @@
+/* ==========================================================================
+   Design tokens. The single place to change colors, fonts, spacing, motion
+   and breakpoints. CSS reads these as custom properties; JavaScript (GSAP,
+   the 3D scene) reads the same values through src/lib/tokens.js.
+   ========================================================================== */
+
+/* Breakpoints: usable in any CSS file as  @media (--md) { ... }  */
+@custom-media --sm (min-width: 480px);
+@custom-media --md (min-width: 768px);
+@custom-media --lg (min-width: 1024px);
+@custom-media --xl (min-width: 1440px);
+@custom-media --hover (hover: hover) and (pointer: fine);
+@custom-media --touch (hover: none), (pointer: coarse);
+@custom-media --motion (prefers-reduced-motion: no-preference);
+@custom-media --reduced (prefers-reduced-motion: reduce);
+
+:root {
+  /* Same breakpoints, exposed to JavaScript. Keep in sync with the list above. */
+  --bp-sm: 480px;
+  --bp-md: 768px;
+  --bp-lg: 1024px;
+  --bp-xl: 1440px;
+
+  /* Color: one background, one text color, one accent. */
+  --color-bg: #edeae3;
+  --color-ink: #0e0e0c;
+  --color-accent: #ff4a1c;
+  /* Derived tones (never new hues). */
+  --color-muted: rgb(14 14 12 / 0.64);
+  --color-line: rgb(14 14 12 / 0.16);
+  --color-muted-inv: rgb(237 234 227 / 0.64);
+  --color-line-inv: rgb(237 234 227 / 0.2);
+
+  /* Type families (files live in src/assets/fonts). */
+  --font-display: 'Bricolage Grotesque', 'Arial Narrow', 'Helvetica Neue', Arial, sans-serif;
+  --font-body: 'Geist', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: 'Geist Mono', ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace;
+
+  /* Type scale. */
+  --fs-mega: clamp(4.5rem, min(25vw, 42svh), 30rem);
+  --fs-h1: clamp(3.25rem, 13vw, 15rem);
+  --fs-h2: clamp(2.75rem, 8.4vw, 9.5rem);
+  --fs-h3: clamp(1.9rem, 4.4vw, 4.75rem);
+  --fs-lead: clamp(1.25rem, 1.9vw, 1.9rem);
+  --fs-body: clamp(1rem, 1.05vw, 1.125rem);
+  --fs-small: 0.875rem;
+  --fs-label: 0.75rem;
+
+  --lh-tight: 0.84;
+  --lh-snug: 1.02;
+  --lh-body: 1.55;
+  --track-display: -0.035em;
+  --track-label: 0.08em;
+
+  /* Spacing. */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2rem;
+  --space-7: 3rem;
+  --space-8: 4.5rem;
+  --space-9: 7rem;
+  --gutter: clamp(1.25rem, 2.6vw, 2.75rem);
+  --section: clamp(6rem, 13vw, 13rem);
+  --header-h: 4.25rem;
+
+  /* Motion: one easing curve and three durations for the whole site. */
+  --ease: cubic-bezier(0.16, 1, 0.3, 1);
+  --dur-fast: 0.5s;
+  --dur-base: 1s;
+  --dur-slow: 1.4s;
+
+  /* Layers. */
+  --z-backdrop: 0;
+  --z-scene: 1;
+  --z-content: 2;
+  --z-header: 50;
+  --z-menu: 60;
+  --z-transition: 90;
+  --z-preloader: 100;
+  --z-cursor: 110;
+}
