@@ -62,20 +62,50 @@ breakpoints, easing and durations. CSS reads the custom properties directly; GSA
 
 ```
 src/
-  components/   Header, Footer, Preloader, Transition, Cursor, Media, RoundButton, Page
+  components/   Header, Footer, Preloader (prompt intro), Generate, BuildStatus, Transition, Cursor, Media, RoundButton, Page
   sections/     Hero, About, Stack, Work (the home page)
   pages/        Home, Project (case study), Contact, Thanks, NotFound
   three/        Scene (lazy), DivBlock, PreviewPlane, shaders/, poses, sceneState
-  hooks/        useIntro, useReveal, useMagnetic, useSeo
+  hooks/        useGenerate, useParallax, useMagnetic, useSeo
   lib/          gsap setup, smooth scroll, design-token reader, device detection
   data/         all content
   styles/       tokens.css, fonts.css, global.css
 scripts/        prerender.mjs, optimize-images.mjs, check-external.mjs
 ```
 
-Animation is declarative: add `data-intro="chars|lines|fade"` for entrance animation or
-`data-reveal="lines|fade|rule"` for scroll reveals, and `useIntro` / `useReveal` (called
-once in `Page.jsx`) wire them up. Only `transform` and `opacity` are animated.
+## The "AI builds the page" animation
+
+Every section builds itself live the first time it scrolls into view: wireframe outlines
+draw, a status label types `generating section 03 / stack…`, headings and text stream in
+with a caret, images go from a grid to a pixelated preview to the real image, buttons and
+tags snap in, then the outlines fade and the label says `done ✓`. A first-visit intro types
+`build my portfolio`, and a small indicator in the header shows `building 03 / 05`.
+The 3D block starts as an orange wireframe and fills in with the first section.
+
+**Add it to a section:** render the section through `<Generate>` and mark its parts.
+
+```jsx
+<Generate as="section" index={3} name="stack" className="stack section">
+  <h2 data-gen="heading">…</h2>        {/* streams by character (short) or word */}
+  <p data-gen="text">…</p>             {/* streams in chunks of words */}
+  <Media … />                          {/* images mark themselves data-gen="image" */}
+  <div data-gen="component">…</div>    {/* buttons, tags, cards: snap in */}
+  <li data-gen-box="">…</li>           {/* outline only; its children animate */}
+</Generate>
+```
+
+- `index` is the section's place in the page's build order (1 = first); `name` is shown in the label.
+- `order={['text', 'heading', 'image', 'components']}` changes the phase order; `speed={0.8}` is faster.
+- Every timing, easing and size lives in `src/lib/generate.config.js`.
+- Sections build once per visit; scrolling back, or revisiting a page, shows them finished.
+  Scrolling past a section that is still building finishes it instantly.
+- All text stays in the HTML (it is split into spans whose opacity changes), so search
+  engines and screen readers always get it. Outlines, caret and labels are `aria-hidden`.
+- Phones get a lighter version (outlines and fades, no word streaming). With
+  `prefers-reduced-motion` sections just fade in.
+
+Image parallax is wired up by `useParallax` (called once in `Page.jsx`). Only `transform`,
+`opacity` and `clip-path` are animated.
 
 ## 3D
 

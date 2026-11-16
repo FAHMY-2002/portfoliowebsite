@@ -1,5 +1,6 @@
 import { Suspense, useEffect } from 'react';
 import { Route, Routes, useLocation } from 'react-router';
+import BuildStatus from './components/BuildStatus.jsx';
 import Cursor from './components/Cursor.jsx';
 import Header from './components/Header.jsx';
 import Preloader from './components/Preloader.jsx';
@@ -36,6 +37,7 @@ export default function App() {
             ))}
           </Routes>
         </Suspense>
+        <BuildStatus />
         <Cursor />
       </TransitionProvider>
     </div>

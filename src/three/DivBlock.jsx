@@ -20,7 +20,19 @@ export default function DivBlock({ tier, staticMode }) {
   const slabs = useRef([]);
   const time = useRef(0);
   const target = useRef({});
-  const current = useRef({ x: 0.2, y: 0.1, scale: 0, rotX: 0.9, rotY: -1.3, explode: 0.6, sway: 1, px: 0, py: 0, twist: 0, invert: 0 });
+  const current = useRef({
+    x: 0.2,
+    y: 0.1,
+    scale: 0,
+    rotX: 0.9,
+    rotY: -1.3,
+    explode: 0.6,
+    sway: 1,
+    px: 0,
+    py: 0,
+    twist: 0,
+    invert: 0,
+  });
 
   const geometry = useMemo(() => new THREE.BoxGeometry(SIZE.w, SIZE.h, SIZE.d), []);
   const materials = useMemo(() => {
@@ -33,6 +45,7 @@ export default function DivBlock({ tier, staticMode }) {
           vertexShader: slabVertex,
           fragmentShader: slabFragment,
           toneMapped: false,
+          transparent: true,
           uniforms: {
             uPaper: { value: paper },
             uInk: { value: ink },
@@ -42,6 +55,7 @@ export default function DivBlock({ tier, staticMode }) {
             uLayout: { value: i % 9 },
             uDetail: { value: tier === 'low' ? 0 : 1 },
             uLine: { value: 1 },
+            uSolid: { value: scene.build },
           },
         }),
     );
@@ -90,11 +104,7 @@ export default function DivBlock({ tier, staticMode }) {
 
     g.position.set(c.x * viewport.width, c.y * viewport.height, 0);
     g.scale.setScalar(c.scale * unit);
-    g.rotation.set(
-      c.rotX + c.py * 0.14,
-      c.rotY + Math.sin(time.current * 0.35) * 0.26 * c.sway + c.px * 0.3,
-      0,
-    );
+    g.rotation.set(c.rotX + c.py * 0.14, c.rotY + Math.sin(time.current * 0.35) * 0.26 * c.sway + c.px * 0.3, 0);
 
     const mid = (skills.length - 1) / 2;
     const step = SIZE.h + GAP + c.explode * SPREAD;
@@ -107,6 +117,10 @@ export default function DivBlock({ tier, staticMode }) {
       const u = materials[i].uniforms;
       u.uActive.value = damp(u.uActive.value, i === activeIndex ? 1 : 0, staticMode ? 1000 : 9, dt);
       u.uInvert.value = c.invert;
+      // Slabs solidify bottom to top as the first section generates.
+      const order = slabs.current.length - 1 - i;
+      const solid = clamp(scene.build * slabs.current.length - order, 0, 1);
+      u.uSolid.value = staticMode ? 1 : damp(u.uSolid.value, solid, 14, dt);
     }
   });
 

@@ -1,0 +1,43 @@
+/* Sits in the empty middle of the header bar, so it never covers page content. */
+.build-status {
+  position: fixed;
+  top: calc(var(--header-h) / 2);
+  left: 50%;
+  translate: -50% -50%;
+  z-index: var(--z-header);
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-3);
+  color: var(--color-bg);
+  mix-blend-mode: difference;
+  white-space: nowrap;
+  pointer-events: none;
+  opacity: 0;
+  transform: translateY(0.5rem);
+  transition:
+    opacity var(--dur-fast) var(--ease),
+    transform var(--dur-fast) var(--ease);
+}
+.build-status.is-visible {
+  opacity: 1;
+  transform: none;
+}
+.build-status__bar {
+  position: relative;
+  width: 3.5rem;
+  height: 2px;
+  background: rgb(237 234 227 / 0.3);
+  overflow: hidden;
+}
+.build-status__fill {
+  position: absolute;
+  inset: 0;
+  background: currentColor;
+  transform-origin: 0 50%;
+  transition: transform var(--dur-fast) var(--ease);
+}
+@media not all and (--md) {
+  .build-status__bar {
+    display: none;
+  }
+}

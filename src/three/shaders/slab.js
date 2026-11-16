@@ -20,6 +20,7 @@ export const slabFragment = /* glsl */ `
   uniform float uLayout;
   uniform float uDetail;
   uniform float uLine;
+  uniform float uSolid;
   varying vec2 vUv;
   varying vec3 vNormalObj;
 
@@ -76,10 +77,16 @@ export const slabFragment = /* glsl */ `
     fill = mix(fill, uAccent, uActive);
 
     float edge = box(vUv, vec2(0.0), vec2(1.0));
-    float inner = isTop * uDetail * wire(vUv, uLayout) * 0.55;
-    vec3 color = mix(fill, mix(ink, uInk, uActive), max(edge, inner));
+    float inner = isTop * uDetail * wire(vUv, uLayout) * mix(1.0, 0.55, uSolid);
+    float line = max(edge, inner);
+    // While "generating", the slab is a wireframe drawn in the accent color;
+    // uSolid fills it in and turns the lines back to ink.
+    vec3 lineColor = mix(uAccent, mix(ink, uInk, uActive), uSolid);
+    vec3 color = mix(fill, lineColor, line);
+    float alpha = max(line, uSolid);
+    if (alpha < 0.01) discard;
 
-    gl_FragColor = vec4(color, 1.0);
+    gl_FragColor = vec4(color, alpha);
     #include <colorspace_fragment>
   }
 `;

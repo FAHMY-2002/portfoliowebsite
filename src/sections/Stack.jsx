@@ -4,6 +4,7 @@ import { skills } from '../data/skills.js';
 import { gsap, ScrollTrigger, useGSAP } from '../lib/gsap.js';
 import { mq } from '../lib/tokens.js';
 import { scene } from '../three/sceneState.js';
+import Generate from '../components/Generate.jsx';
 import SectionHead from '../components/SectionHead.jsx';
 import './Stack.css';
 
@@ -56,21 +57,25 @@ export default function Stack() {
   );
 
   return (
-    <section id="stack" className="stack section" ref={root}>
+    <Generate as="section" index={3} name="stack" id="stack" className="stack section" innerRef={root}>
       <div className="stack__inner wrap">
         <SectionHead num="03" label={copy.stack.label}>
           <p className="label label--muted">{copy.stack.title}</p>
         </SectionHead>
         <ol className="stack__list">
           {skills.map((name, i) => (
-            <li key={name} className="stack__item" ref={(el) => (items.current[i] = el)}>
-              <span className="stack__num num label">{String(i + 1).padStart(2, '0')}</span>
-              <span className="stack__name display">{name}</span>
+            <li key={name} className="stack__item" ref={(el) => (items.current[i] = el)} data-gen-box="">
+              <span className="stack__num num label" data-gen="component">
+                {String(i + 1).padStart(2, '0')}
+              </span>
+              <span className="stack__name display" data-gen="heading">
+                {name}
+              </span>
               <span className="stack__mark" aria-hidden="true" />
             </li>
           ))}
         </ol>
       </div>
-    </section>
+    </Generate>
   );
 }

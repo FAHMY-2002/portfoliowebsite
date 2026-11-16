@@ -1,0 +1,119 @@
+/* Overlays drawn by useGenerate while a section builds. All aria-hidden and
+   absolutely positioned: they never take space, so nothing shifts. */
+[data-generate] {
+  position: relative;
+}
+.gen-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 5;
+  pointer-events: none;
+  color: var(--gen-ink, var(--color-ink));
+}
+
+/* Wireframe box: four edges that scale in from their corners. */
+.gen-box {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.gen-box__e {
+  position: absolute;
+  background: var(--color-accent);
+}
+.gen-box__e--t,
+.gen-box__e--b {
+  left: 0;
+  right: 0;
+  height: 1px;
+}
+.gen-box__e--t {
+  top: 0;
+  transform-origin: 0 50%;
+}
+.gen-box__e--b {
+  bottom: 0;
+  transform-origin: 100% 50%;
+}
+.gen-box__e--l,
+.gen-box__e--r {
+  top: 0;
+  bottom: 0;
+  width: 1px;
+}
+.gen-box__e--r {
+  right: 0;
+  transform-origin: 50% 0;
+}
+.gen-box__e--l {
+  left: 0;
+  transform-origin: 50% 100%;
+}
+.gen-box__tag {
+  position: absolute;
+  top: -1.35em;
+  left: -1px;
+  padding: 0.1em 0.35em;
+  background: var(--color-accent);
+  color: var(--color-ink);
+  font: 500 0.625rem/1.2 var(--font-mono);
+  letter-spacing: var(--track-label);
+  text-transform: uppercase;
+}
+
+/* "generating section 03 / stack…" in the section's top-right corner. */
+.gen-status {
+  position: absolute;
+  top: var(--space-4);
+  right: var(--gutter);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.15em;
+  padding: 0.35em 0.6em;
+  border: 1px solid var(--color-accent);
+  height: 2.1em;
+  background: var(--gen-bg, var(--color-bg));
+  white-space: nowrap;
+  overflow: hidden;
+}
+.gen-status__cursor {
+  width: 0.55em;
+  height: 1.05em;
+  background: var(--color-accent);
+  animation: gen-blink 0.9s steps(1) infinite;
+}
+.gen-status.is-done .gen-status__cursor {
+  display: none;
+}
+@keyframes gen-blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+/* The writing caret: 100px tall, scaled to the line height of what it follows. */
+.gen-caret {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 3px;
+  height: 100px;
+  background: var(--color-accent);
+  transform-origin: 0 0;
+  opacity: 0;
+}
+
+/* The first section of a page starts under the fixed header and its top row of
+   labels, so its status label drops below both. */
+.gen-overlay--first .gen-status {
+  top: calc(var(--header-h) + 4.5rem);
+}
+@media (--md) {
+  .gen-overlay--first .gen-status {
+    top: calc(var(--header-h) + 2.75rem);
+  }
+}
+.footer__content {
+  --gen-ink: var(--color-bg);
+  --gen-bg: var(--color-ink);
+}

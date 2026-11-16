@@ -4,6 +4,7 @@ import { site } from '../data/site.js';
 import { ScrollTrigger, useGSAP } from '../lib/gsap.js';
 import { scrollTo } from '../lib/scroll.js';
 import { scene } from '../three/sceneState.js';
+import Generate from './Generate.jsx';
 import RoundButton from './RoundButton.jsx';
 import SectionHead from './SectionHead.jsx';
 import './Footer.css';
@@ -13,17 +14,23 @@ function FooterBottom() {
     <div className="footer__bottom">
       <ul className="footer__social">
         {site.social.map((s) => (
-          <li key={s.label}>
+          <li key={s.label} data-gen="component">
             <a className="label link" href={s.href} target="_blank" rel="noopener noreferrer">
-              {s.label} <span className="arrow" aria-hidden="true">↗</span>
+              {s.label}{' '}
+              <span className="arrow" aria-hidden="true">
+                ↗
+              </span>
             </a>
           </li>
         ))}
       </ul>
-      <button type="button" className="label link" onClick={() => scrollTo(0)}>
-        {copy.footer.top} <span className="arrow" aria-hidden="true">↑</span>
+      <button type="button" className="label link" onClick={() => scrollTo(0)} data-gen="component">
+        {copy.footer.top}{' '}
+        <span className="arrow" aria-hidden="true">
+          ↑
+        </span>
       </button>
-      <p className="label footer__rights">
+      <p className="label footer__rights" data-gen="text">
         © <span suppressHydrationWarning>{new Date().getFullYear()}</span> {site.name}. {copy.footer.rights}
       </p>
     </div>
@@ -32,7 +39,7 @@ function FooterBottom() {
 
 // variant="full": dark closing section with the big call to action (and the 3D block).
 // variant="compact": just the links row, used on pages that already are the call to action.
-export default function Footer({ variant = 'full', num }) {
+export default function Footer({ variant = 'full', num, index = 99 }) {
   const root = useRef(null);
 
   useGSAP(
@@ -52,16 +59,16 @@ export default function Footer({ variant = 'full', num }) {
 
   if (variant === 'compact') {
     return (
-      <footer className="footer footer--compact section wrap">
+      <Generate as="footer" index={index} name="footer" className="footer footer--compact section wrap">
         <FooterBottom />
-      </footer>
+      </Generate>
     );
   }
 
   return (
     <footer className="footer" ref={root}>
       <span className="footer__bg" aria-hidden="true" />
-      <div className="footer__content wrap">
+      <Generate as="div" index={index} name="contact" className="footer__content wrap">
         <SectionHead num={num} label={copy.footer.label} inverse>
           <p className="label status">
             <span className="dot" aria-hidden="true" />
@@ -70,18 +77,18 @@ export default function Footer({ variant = 'full', num }) {
         </SectionHead>
         <h2 className="footer__title display">
           {copy.footer.titleLines.map((line) => (
-            <span key={line} className="footer__line" data-reveal="lines">
+            <span key={line} className="footer__line" data-gen="heading">
               {line}
             </span>
           ))}
         </h2>
-        <div className="footer__cta" data-reveal="fade">
+        <div className="footer__cta" data-gen="component">
           <RoundButton to="/contact" label={copy.contact.label} data-cursor="">
             {copy.footer.cta}
           </RoundButton>
         </div>
         <FooterBottom />
-      </div>
+      </Generate>
     </footer>
   );
 }

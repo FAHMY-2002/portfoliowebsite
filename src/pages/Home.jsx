@@ -30,7 +30,7 @@ export default function Home() {
 
   return (
     <div ref={root}>
-      <Page sceneMode="home" footer="full" footerNum="05">
+      <Page sceneMode="home" footer="full" footerNum="05" footerIndex={5}>
         <Hero />
         <About />
         <Stack />

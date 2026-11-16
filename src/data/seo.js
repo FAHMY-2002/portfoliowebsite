@@ -10,8 +10,7 @@ const base = {
   },
   '/contact': {
     title: `Contact | ${site.name}`,
-    description:
-      'Get in touch with Mohamed Fahmy, WordPress developer. Send a message, or reach out on LinkedIn or WhatsApp.',
+    description: 'Get in touch with Mohamed Fahmy, WordPress developer. Send a message, or reach out on LinkedIn or WhatsApp.',
   },
   '/thanks': {
     title: `Message sent | ${site.name}`,

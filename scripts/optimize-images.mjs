@@ -39,5 +39,11 @@ for (const [name, file] of Object.entries(MAP)) {
       .toFile(path.join(OUT, `${name}-${w}.webp`));
     report[name].widths.push({ w, width: info.width, height: info.height, kb: Math.round(info.size / 1024) });
   }
+  // Tiny version used as the pixelated placeholder while a section "generates".
+  await sharp(input)
+    .resize({ width: name === 'portrait' ? 18 : 28 })
+    .flatten({ background: '#ffffff' })
+    .webp({ quality: 60 })
+    .toFile(path.join(OUT, `${name}-px.webp`));
 }
 console.log(JSON.stringify(report, null, 1));

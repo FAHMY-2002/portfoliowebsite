@@ -21,15 +21,21 @@ export default function Header() {
 
   return (
     <>
-      <header className="header">
-        <TLink to="/" className="header__brand label" aria-label={`${site.brand}, home`} onClick={() => setOpen(false)}>
+      <header className="header" data-gen-header="">
+        <TLink
+          to="/"
+          data-gen="component"
+          className="header__brand label"
+          aria-label={`${site.brand}, home`}
+          onClick={() => setOpen(false)}
+        >
           <span className="box" aria-hidden="true" />
           {site.brand}
         </TLink>
         <nav className="header__nav" aria-label="Primary">
           <ul>
             {site.nav.map((item) => (
-              <li key={item.to}>
+              <li key={item.to} data-gen="component">
                 <TLink to={item.to} label={item.label} className="header__link label">
                   {item.label}
                 </TLink>
@@ -40,6 +46,7 @@ export default function Header() {
         <button
           type="button"
           className="header__toggle label"
+          data-gen="component"
           aria-expanded={open}
           aria-controls="menu"
           onClick={() => setOpen((v) => !v)}

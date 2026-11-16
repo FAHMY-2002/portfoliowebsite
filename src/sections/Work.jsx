@@ -4,6 +4,7 @@ import { categories, projects } from '../data/projects.js';
 import { projectImage } from '../lib/images.js';
 import { ScrollTrigger } from '../lib/gsap.js';
 import { scene } from '../three/sceneState.js';
+import Generate from '../components/Generate.jsx';
 import Media from '../components/Media.jsx';
 import SectionHead from '../components/SectionHead.jsx';
 import { TLink } from '../components/Transition.jsx';
@@ -44,7 +45,7 @@ export default function Work() {
   const count = (c) => (c === 'All' ? projects.length : projects.filter((p) => p.category === c).length);
 
   return (
-    <section id="work" className="work section">
+    <Generate as="section" index={4} name="projects" id="work" className="work section">
       <div className="wrap">
         <SectionHead num="04" label={copy.work.label}>
           <ul className="work__filters" aria-label="Filter projects">
@@ -58,28 +59,36 @@ export default function Work() {
           </ul>
         </SectionHead>
 
-        <h2 className="work__title display" data-reveal="lines">
+        <h2 className="work__title display" data-gen="heading">
           {copy.work.title}
         </h2>
 
         <ul className="work__list" onMouseLeave={hide}>
           {projects.map((p, i) => (
-            <li key={p.slug} className="work__item" hidden={filter !== 'All' && p.category !== filter}>
-              <TLink
-                to={`/work/${p.slug}`}
-                label={p.name}
-                className="work__row"
-                data-cursor="View"
-                onMouseEnter={() => show(i)}
-              >
-                <span className="work__num num label">{String(i + 1).padStart(2, '0')}</span>
+            <li key={p.slug} className="work__item" hidden={filter !== 'All' && p.category !== filter} data-gen-box="">
+              <TLink to={`/work/${p.slug}`} label={p.name} className="work__row" data-cursor="View" onMouseEnter={() => show(i)}>
+                <span className="work__num num label" data-gen="component">
+                  {String(i + 1).padStart(2, '0')}
+                </span>
                 <div className="work__media">
-                  <Media image={images[i]} alt={`${p.name} website`} ratio={p.ratio} sizes="(min-width: 768px) 38vw, 92vw" parallax={false} />
+                  <Media
+                    image={images[i]}
+                    alt={`${p.name} website`}
+                    ratio={p.ratio}
+                    sizes="(min-width: 768px) 38vw, 92vw"
+                    parallax={false}
+                  />
                 </div>
-                <span className="work__name display">{p.name}</span>
-                <span className="work__desc">{p.description}</span>
-                <span className="work__cat label label--muted">{p.category}</span>
-                <span className="work__arrow" aria-hidden="true">
+                <span className="work__name display" data-gen="heading">
+                  {p.name}
+                </span>
+                <span className="work__desc" data-gen="text">
+                  {p.description}
+                </span>
+                <span className="work__cat label label--muted" data-gen="component">
+                  {p.category}
+                </span>
+                <span className="work__arrow" aria-hidden="true" data-gen="component">
                   ↗
                 </span>
               </TLink>
@@ -87,6 +96,6 @@ export default function Work() {
           ))}
         </ul>
       </div>
-    </section>
+    </Generate>
   );
 }

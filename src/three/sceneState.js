@@ -8,6 +8,7 @@ export const scene = {
   // Scroll progress (0..1) of each transition, written by ScrollTrigger.
   t: { about: 0, stack: 0, work: 0, footer: 0 },
   active: -1, // highlighted slab (index into data/skills.js)
+  build: 1, // 0 = wireframe only, 1 = solid; driven by the first section's generate timeline
   velocity: 0, // scroll velocity from Lenis
   pointer: { x: 0, y: 0, px: 0, py: 0 },
   preview: { visible: false, index: 0, sources: [], ratio: 2.1 },

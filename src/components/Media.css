@@ -8,15 +8,33 @@
   width: 100%;
   height: 100%;
 }
+.media__inner {
+  position: relative;
+  z-index: 1;
+}
 .media__inner img {
   object-fit: cover;
 }
-.media__cover {
+/* Placeholders: hidden unless the section is generating (useGenerate shows them). */
+.media__grid,
+.media__px {
   position: absolute;
   inset: 0;
-  background: var(--color-bg);
-  transform: scaleY(0);
+  opacity: 0;
   pointer-events: none;
+}
+.media__grid {
+  background-color: var(--color-bg);
+  background-image:
+    linear-gradient(to right, rgb(255 74 28 / 0.35) 1px, transparent 1px),
+    linear-gradient(to bottom, rgb(255 74 28 / 0.35) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+.media__px {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  image-rendering: pixelated;
 }
 /* Portrait: one-color treatment so the photo sits inside the palette. */
 .media--mono img {
@@ -26,6 +44,7 @@
   content: '';
   position: absolute;
   inset: 0;
+  z-index: 2;
   background: var(--color-bg);
   mix-blend-mode: multiply;
   pointer-events: none;

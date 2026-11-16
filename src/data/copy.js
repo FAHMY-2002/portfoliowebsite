@@ -8,8 +8,7 @@ export const copy = {
   },
   about: {
     label: 'About',
-    statement:
-      'I build custom WordPress themes and plugins: responsive, fast and easy to use.',
+    statement: 'I build custom WordPress themes and plugins: responsive, fast and easy to use.',
     body: [
       'WordPress developer with 3+ years of experience (since 2023), working in HTML, CSS, JavaScript, Tailwind CSS and WooCommerce.',
       'I focus on performance, clean code and modern development practices. A collaborative team player with strong communication skills and a passion for delivering high-quality web experiences.',

@@ -1,23 +1,22 @@
 import { useEffect, useRef } from 'react';
 import { useLocation } from 'react-router';
-import { useIntro } from '../hooks/useIntro.js';
-import { useReveal } from '../hooks/useReveal.js';
+import { useParallax } from '../hooks/useParallax.js';
 import { useSeo } from '../hooks/useSeo.js';
 import { scene } from '../three/sceneState.js';
 import Footer from './Footer.jsx';
 import { useTransition } from './Transition.jsx';
 
 // Wrapper every page renders through. It sets the document head, tells the 3D scene
-// which mode the page wants, wires up intro + scroll reveals, and renders the footer.
+// which mode the page wants, wires up image parallax, and renders the footer.
+// Each section inside builds itself through <Generate>; the footer is the last one (footerIndex).
 //   scene: 'home' (full scroll choreography) | 'idle' (block resting at the side) | 'off'
-export default function Page({ children, className = '', sceneMode = 'off', footer = 'full', footerNum }) {
+export default function Page({ children, className = '', sceneMode = 'off', footer = 'full', footerNum, footerIndex }) {
   const root = useRef(null);
   const { pathname } = useLocation();
   const { pageMounted } = useTransition();
 
   useSeo(pathname);
-  useIntro(root);
-  useReveal(root);
+  useParallax(root);
 
   useEffect(() => {
     scene.resetScroll();
@@ -31,7 +30,7 @@ export default function Page({ children, className = '', sceneMode = 'off', foot
       <main id="main" className={`page ${className}`}>
         {children}
       </main>
-      <Footer variant={footer} num={footerNum} />
+      <Footer variant={footer} num={footerNum} index={footerIndex} />
     </div>
   );
 }

@@ -3,6 +3,7 @@ import { BrowserRouter } from 'react-router';
 import './styles/tokens.css';
 import './styles/fonts.css';
 import './styles/global.css';
+import './styles/generate.css';
 import App from './App.jsx';
 import { preloadRoute } from './routes.js';
 
